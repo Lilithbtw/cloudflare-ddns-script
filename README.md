@@ -35,6 +35,10 @@ wget https://raw.githubusercontent.com/Lilithbtw/cloudfare-ddns-script/main/clou
 sudo chmod +x cloudflare-dyndns.sh
 sudo nano cloudflare-dyndns.sh
 ```
+To test if it's working run it (if it runs without errors it's working)
+```bash
+./cloudflare-dyndns.sh
+```
 to run this script every 5 minutes
 ```bash
 crontab -e
