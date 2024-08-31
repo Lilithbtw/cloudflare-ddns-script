@@ -2,6 +2,7 @@
 ## Requierments
 * wget for installation
 * bash
+* crontab
 * curl
 * Cloudfare API KEY with ZONE-DNS-EDIT Permissions
 * DNS Record must be pre created
@@ -34,6 +35,14 @@ You can place the script at any location manually.
 wget https://raw.githubusercontent.com/Lilithbtw/cloudfare-ddns-script/main/cloudflare-dyndns.sh
 sudo chmod +x cloudflare-dyndns.sh
 sudo nano cloudflare-dyndns.sh
+```
+to run this script every 5 minutes
+```bash
+crontab -e
+```
+and paste 
+```bash
+*/5 * * * * /your-path/cloudflare-dyndns.sh
 ```
 ## [License](https://choosealicense.com/licenses/mit/)
 
