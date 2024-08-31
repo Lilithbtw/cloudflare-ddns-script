@@ -8,15 +8,14 @@
 * DNS Record must be pre created
 * Domain and Record ID
 ## How to Request Cloudfare API KEY
-To create a CloudFlare API token for your DNS zone go to https://dash.cloudflare.com/profile/api-tokens and follow these steps:
-1. Go to your profile
-2. Go to API TOKENS
-3. Click Create Token
-4. Click 'Edit zone DNS' from the templates
+To create a CloudFlare API token for your DNS zone go to https://dash.cloudflare.com/profile and follow these steps:
+1. Go to API TOKENS
+2. Click Create Token
+3. Click 'Edit zone DNS' from the templates
    - On zone Resources click your zone (your domain)
    - And Click 'Continue to Summary'
-5. Click 'Create Token'
-6. Copy/Paste your API KEY to 'CLOUDFLARE_API_KEY='
+4. Click 'Create Token'
+5. Copy/Paste your API KEY to 'CLOUDFLARE_API_KEY='
 ## How to see Domain ID
 1. Go to manage account
 2. Go to Audit Log
