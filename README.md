@@ -1,5 +1,5 @@
 # DDNS Cloudflare Script
-## Requierments
+## Requirements
 * wget for installation
 * bash
 * crontab
