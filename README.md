@@ -31,7 +31,7 @@ To create a CloudFlare API token for your DNS zone go to https://dash.cloudflare
 ## How to Install and start configuring
 For starters let's install all the dependencies you can do that using the package manager of your choice in this case we will use apt
 ```bash
-sudo apt install wget crontab curl 
+sudo apt install wget crontab curl jq
 ```
 You can place the script at any location manually.
 ```bash
