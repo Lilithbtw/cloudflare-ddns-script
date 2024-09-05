@@ -8,10 +8,15 @@ CLOUDFLARE_EMAIL=
 DOMAIN=
 RECORD=
 
+#Define the Variables
+record_name=""        # Which record you want to be synced
+ttl=3600              # Set the DNS TTL (seconds)
+proxy=""							# Set the proxy to true or false
+
 ## Get the current public IP address
 IP=$(curl -s https://cloudflare.com/cdn-cgi/trace | grep -E '^ip' | cut -d = -f 2)
 
-## Get the current IP address on Cloudflare
+# Get the current IP address on Cloudflare
 CF_IP=$(curl -s https://api.cloudflare.com/client/v4/zones/$DOMAIN/dns_records/$RECORD \
   -H "X-Auth-Email: $CLOUDFLARE_EMAIL" \
   -H "Authorization: Bearer $CLOUDFLARE_API_KEY" \
@@ -21,10 +26,10 @@ CF_IP=$(curl -s https://api.cloudflare.com/client/v4/zones/$DOMAIN/dns_records/$
 
 ## Update the IP address on Cloudflare if it has changed
 if [ "$IP" != "$CF_IP" ]; then
-  curl -s https://api.cloudflare.com/client/v4/zones/$DOMAIN/dns_records/$RECORD \
-    -X PUT \
-    -H "X-Auth-Email: $CLOUDFLARE_EMAIL" \
-    -H "Authorization: Bearer $CLOUDFLARE_API_KEY" \
-    -H "Content-Type: application/json" \
-    --data "{\"type\":\"A\",\"name\":\"$RECORD\",\"content\":\"$IP\"}"
+  update=$(curl -s -X PATCH "https://api.cloudflare.com/client/v4/zones/$DOMAIN/dns_records/$RECORD" \
+     -H "X-Auth-Email: $CLOUDFLARE_EMAIL" \
+     -H "Authorization: Bearer $CLOUDFLARE_API_KEY" \
+     -H "Content-Type: application/json" \
+     --data "{\"type\":\"A\",\"name\":\"$record_name\",\"content\":\"$IP\",\"ttl\":$ttl,\"proxied\":${proxy}}")
 fi
+
