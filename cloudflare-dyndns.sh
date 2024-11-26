@@ -9,9 +9,9 @@ DOMAIN=
 RECORD=
 
 #Define the Variables
-record_name=""        # Which record you want to be synced
-ttl=3600              # Set the DNS TTL (seconds)
-proxy=""							# Set the proxy to true or false
+RECORD_NAME=""        # Which record you want to be synced
+TTL=3600              # Set the DNS TTL (seconds)
+PROXY=""							# Set the proxy to true or false
 
 ## Get the current public IP address
 IP=$(curl -s https://cloudflare.com/cdn-cgi/trace | grep -E '^ip' | cut -d = -f 2)
@@ -30,6 +30,6 @@ if [ "$IP" != "$CF_IP" ]; then
      -H "X-Auth-Email: $CLOUDFLARE_EMAIL" \
      -H "Authorization: Bearer $CLOUDFLARE_API_KEY" \
      -H "Content-Type: application/json" \
-     --data "{\"type\":\"A\",\"name\":\"$record_name\",\"content\":\"$IP\",\"ttl\":$ttl,\"proxied\":${proxy}}")
+     --data "{\"type\":\"A\",\"name\":\"$RECORD_NAME\",\"content\":\"$IP\",\"ttl\":$TTL,\"proxied\":${PROXY}}")
 fi
 
