@@ -8,7 +8,7 @@ CLOUDFLARE_EMAIL=
 DOMAIN=
 RECORD=
 
-#Define the Variables
+# Define the Variables
 RECORD_NAME=""        # Which record you want to be synced
 TTL=3600              # Set the DNS TTL (seconds)
 PROXY=""							# Set the proxy to true or false
